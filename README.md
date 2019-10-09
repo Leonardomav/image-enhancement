@@ -32,7 +32,7 @@ Selected methods from the list bellow, in the desired order, separated by a comm
 #### image-path 
 + Complete path where the new image will be saved. If there is no path, the image will be only presented and not save.
 
-Use Example
+#### Use Example
 ```bash
 python main.py "C:\User\Documents\Lenna.jpg" "CL,UM,FD" "C:\User\Documents"
 ```
