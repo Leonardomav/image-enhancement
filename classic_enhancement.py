@@ -45,33 +45,6 @@ def gamma_correction(img, gamma=1.3):
     # cv.imshow("Gamma Corrected", cv.LUT(img, table))
     return cv.LUT(img, table)
 
-
-# https://stackoverflow.com/questions/39308030/how-do-i-increase-the-contrast-of-an-image-in-python-opencv
-def apply_brightness_contrast(input_img, brightness=0, contrast=22):
-    if brightness != 0:
-        if brightness > 0:
-            shadow = brightness
-            highlight = 255
-        else:
-            shadow = 0
-            highlight = 255 + brightness
-        alpha_b = (highlight - shadow) / 255
-        gamma_b = shadow
-        buf = cv.addWeighted(input_img, alpha_b, input_img, 0, gamma_b)
-    else:
-        buf = input_img.copy()
-
-    if contrast != 0:
-        f = 131 * (contrast + 127) / (127 * (131 - contrast))
-        alpha_c = f
-        gamma_c = 127 * (1 - f)
-
-        buf = cv.addWeighted(buf, alpha_c, buf, 0, gamma_c)
-
-    # cv.imshow("apply_brightness_contrast", buf)
-    return buf
-
-
 # http://www.ipol.im/pub/art/2011/bcm_nlm/
 def fast_n1_denoising(img):
     # switch to rgb

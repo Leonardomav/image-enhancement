@@ -26,7 +26,6 @@ def main():
         "HE": classic_enhancement.histogram_equalize,
         "CL": classic_enhancement.clahe,
         "GC": classic_enhancement.gamma_correction,
-        "BC": classic_enhancement.apply_brightness_contrast,
         "FD": classic_enhancement.fast_n1_denoising,
         "UM": classic_enhancement.unsharp_masking,
     }
@@ -120,7 +119,7 @@ def test_dataset(data_set, functions):
 
 if __name__ == "__main__":
     # function_set = [classic_enhancement.contrast_stretching, classic_enhancement.clahe, classic_enhancement.histogram_equalize,
-    #                 classic_enhancement.gamma_correction, classic_enhancement.apply_brightness_contrast,
+    #                 classic_enhancement.gamma_correction,
     #                 classic_enhancement.fast_n1_denoising, classic_enhancement.unsharp_masking]
     # for i in range(len(function_set)):
     #    test_dataset("good", [function_set[i]])
