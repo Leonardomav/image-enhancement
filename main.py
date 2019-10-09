@@ -34,7 +34,6 @@ def main():
         except KeyError as e:
             print("Function not available")
             exit(0)
-        print(func.__name__)
         new_image = func(new_image)
 
     cv.imshow('Original', img)
