@@ -17,10 +17,10 @@ pip install -r requirements.txt
 python main.py <image-path> <methods-list> <destination-path>
 ```
 
-#### <image-path> 
+### <image-path> 
 + Complete or relative path to the image.
 
-#### <methods-list> 
+### <methods-list> 
 Selected methods from the list bellow, in the desired order, separated by a comma. 
 + CS: Contrast Stretching
 + HE: Histogram Equalizer
@@ -29,7 +29,7 @@ Selected methods from the list bellow, in the desired order, separated by a comm
 + FD: Denoising using _fastn1_
 + UM: Unsharp Masking
 
-#### <image-path> 
+### <image-path> 
 + Complete path where the new image will be saved. If there is no path, the image will be only presented and not save.
 
 Use Example
