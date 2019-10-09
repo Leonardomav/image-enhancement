@@ -8,7 +8,11 @@ import classic_enhancement
 def main():
     img_path = sys.argv[1]
     func_string = sys.argv[2]
-    save_location = sys.argv[3]
+    try:
+        save_location = sys.argv[3]
+    except IndexError as e:
+        save_location = None
+
 
     img = cv.imread(img_path)
     if img is None:
@@ -38,7 +42,10 @@ def main():
 
     cv.imshow('Original', img)
     cv.imshow(func_string, new_image)
-    cv.imwrite(os.path.join(save_location, func_string + ".jpg"), new_image)
+
+    if(save_location != None):
+        cv.imwrite(os.path.join(save_location, func_string + ".jpg"), new_image)
+
 
     cv.waitKey(0)
     cv.destroyAllWindows()
