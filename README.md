@@ -34,5 +34,5 @@ Selected methods from the list bellow, in the desired order, separated by a comm
 
 #### Use Example
 ```bash
-python main.py "C:\User\Documents\Lenna.jpg" "CL,UM,FD" "C:\User\Documents"
+python main.py "C:\User\Documents\Lenna.jpg" "CL,UM,NL" "C:\User\Documents"
 ```
