@@ -26,7 +26,7 @@ Selected methods from the list bellow, in the desired order, separated by a comm
 + HE: Histogram Equalizer
 + CL: Contrast Limited Adaptive Histogram equalizer
 + GC: Gamma Correction
-+ FD: Denoising using _fastn1_
++ FD: Non-local Means Denoising
 + UM: Unsharp Masking
 
 #### image-path 
