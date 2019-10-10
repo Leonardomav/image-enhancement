@@ -46,7 +46,7 @@ def gamma_correction(img, gamma=1.3):
     return cv.LUT(img, table)
 
 # http://www.ipol.im/pub/art/2011/bcm_nlm/
-def fast_n1_denoising(img):
+def non_local_means_denoising(img):
     # switch to rgb
     img = cv.cvtColor(img, cv.COLOR_BGR2RGB)
     out = cv.fastNlMeansDenoisingColored(img, None, 2, 2, 7, 21)

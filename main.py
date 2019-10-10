@@ -13,7 +13,6 @@ def main():
     except IndexError as e:
         save_location = None
 
-
     img = cv.imread(img_path)
     if img is None:
         print('Could not open or find the image')
@@ -26,7 +25,7 @@ def main():
         "HE": classic_enhancement.histogram_equalize,
         "CL": classic_enhancement.clahe,
         "GC": classic_enhancement.gamma_correction,
-        "FD": classic_enhancement.fast_n1_denoising,
+        "NL": classic_enhancement.non_local_means_denoising,
         "UM": classic_enhancement.unsharp_masking,
     }
 
@@ -42,9 +41,8 @@ def main():
     cv.imshow('Original', img)
     cv.imshow(func_string, new_image)
 
-    if(save_location != None):
+    if save_location is not None:
         cv.imwrite(os.path.join(save_location, func_string + ".jpg"), new_image)
-
 
     cv.waitKey(0)
     cv.destroyAllWindows()
@@ -95,10 +93,8 @@ def test_dataset(data_set, functions):
         my_percentage = measure.compare_ssim(new_image, one_click, multichannel=True)
         average_new += my_percentage
 
-
         their_percentage = measure.compare_ssim(img, one_click, multichannel=True)
         average_original += their_percentage
-
 
         # print similarity and improvement to file
         f.write(filename + ", " + str(their_percentage) + ", " + str(my_percentage) + ", " + str(
@@ -120,7 +116,7 @@ def test_dataset(data_set, functions):
 if __name__ == "__main__":
     # function_set = [classic_enhancement.contrast_stretching, classic_enhancement.clahe, classic_enhancement.histogram_equalize,
     #                 classic_enhancement.gamma_correction,
-    #                 classic_enhancement.fast_n1_denoising, classic_enhancement.unsharp_masking]
+    #                 classic_enhancement.non_local_means_denoising, classic_enhancement.unsharp_masking]
     # for i in range(len(function_set)):
     #    test_dataset("good", [function_set[i]])
 
