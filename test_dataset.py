@@ -1,51 +1,6 @@
 from skimage import measure
 import cv2 as cv
-import sys
 import os
-import classic_enhancement
-
-
-def main():
-    img_path = sys.argv[1]
-    func_string = sys.argv[2]
-    try:
-        save_location = sys.argv[3]
-    except IndexError as e:
-        save_location = None
-
-    img = cv.imread(img_path)
-    if img is None:
-        print('Could not open or find the image')
-        exit(0)
-
-    func_list = list(func_string.split(","))
-
-    func_dict = {
-        "CS": classic_enhancement.contrast_stretching,
-        "HE": classic_enhancement.histogram_equalize,
-        "CL": classic_enhancement.clahe,
-        "GC": classic_enhancement.gamma_correction,
-        "NL": classic_enhancement.non_local_means_denoising,
-        "UM": classic_enhancement.unsharp_masking,
-    }
-
-    new_image = img
-    for i in range(len(func_list)):
-        try:
-            func = func_dict[func_list[i]]
-        except KeyError as e:
-            print("Function not available")
-            exit(0)
-        new_image = func(new_image)
-
-    cv.imshow('Original', img)
-    cv.imshow(func_string, new_image)
-
-    if save_location is not None:
-        cv.imwrite(os.path.join(save_location, func_string + ".jpg"), new_image)
-
-    cv.waitKey(0)
-    cv.destroyAllWindows()
 
 
 def test_dataset(data_set, functions):
@@ -63,7 +18,6 @@ def test_dataset(data_set, functions):
         functions_string += functions[i].__name__ + "_"
 
     destination_path = os.path.join(destination_path, functions_string)
-
     os.makedirs(destination_path, exist_ok=True)
 
     csv_name = functions_string + data_set + ".csv"
@@ -89,7 +43,7 @@ def test_dataset(data_set, functions):
             func = functions[i]
             new_image = func(new_image)
 
-        # https://www.pyimagesearch.com/2014/09/15/python-compare-two-images/
+        # https://www.cns.nyu.edu/pub/eero/wang03-reprint.pdf
         my_percentage = measure.compare_ssim(new_image, one_click, multichannel=True)
         average_new += my_percentage
 
@@ -111,13 +65,3 @@ def test_dataset(data_set, functions):
 
     f.write("AVERAGES, " + str(average_original) + ", " + str(average_new) + ", " + str(average_improvement / counter) + "\n")
     f.close()
-
-
-if __name__ == "__main__":
-    # function_set = [classic_enhancement.contrast_stretching, classic_enhancement.clahe, classic_enhancement.histogram_equalize,
-    #                 classic_enhancement.gamma_correction,
-    #                 classic_enhancement.non_local_means_denoising, classic_enhancement.unsharp_masking]
-    # for i in range(len(function_set)):
-    #    test_dataset("good", [function_set[i]])
-
-    main()
