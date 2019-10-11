@@ -11,7 +11,7 @@ def test_dataset(data_set, functions):
 
     original_path = "OneClic/" + data_set
     oneclick_path = "OneClic/" + data_set + "_usingOneClick"
-    destination_path = "OneClic/" + data_set + "_usingTwoClick"
+    destination_path = "OneClic/" + data_set + "_results"
 
     functions_string = ""
     for i in range(len(functions)):
