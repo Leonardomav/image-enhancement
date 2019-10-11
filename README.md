@@ -34,5 +34,15 @@ Selected methods from the list bellow, in the desired order, separated by a comm
 
 #### Use Example
 ```bash
-python main.py "C:\User\Documents\Lenna.jpg" "CL,UM,NL" "C:\User\Documents"
+python main.py C:/User/Documents/Lenna.jpg CL,UM,NL C:/User/Documents
 ```
+#### Test on the Data-set
+To test the data-set run
+```bash
+python main.py -TEST <methods-list> <sub-set>
+```
+Where _<sub-set>_ can be:
+  + bad
+  + medium
+  + good
+  + all
