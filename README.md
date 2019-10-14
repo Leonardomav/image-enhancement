@@ -41,7 +41,7 @@ To test the data-set run
 ```bash
 python main.py -TEST <methods-list> <sub-set>
 ```
-Where _<sub-set>_ can be:
+Where _sub-set_ can be:
   + bad
   + medium
   + good
