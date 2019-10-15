@@ -63,7 +63,8 @@ def main():
         new_image = func(new_image)
 
     save_name = os.path.basename(img_path)
-    save_name =func_string+"_"+save_name
+    save_name = save_name.split(".")[0]
+    save_name =func_string+"_"+save_name+".png"
     if save_location is not None:
         cv.imwrite(os.path.join(save_location, save_name), new_image)
 
