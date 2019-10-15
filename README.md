@@ -14,7 +14,7 @@ pip install -r requirements.txt
 ## Usage
 
 ```bash
-python main.py <image-path> <methods-list> <destination-path>
+python image_enhancer.py <image-path> <methods-list> <destination-path>
 ```
 
 #### image-path
@@ -34,12 +34,12 @@ Selected methods from the list bellow, in the desired order, separated by a sing
 
 #### Use Example
 ```bash
-python main.py C:/User/Documents/Lenna.jpg CL,UM,NL C:/User/Documents
+python image_enhancer.py C:/User/Documents/Lenna.jpg CL,UM,NL C:/User/Documents
 ```
 #### Test on the Data-set
 To test the data-set run
 ```bash
-python main.py -TEST <methods-list> <sub-set>
+python image_enhancer.py -TEST <methods-list> <sub-set>
 ```
 Where _sub-set_ can be:
   + bad
