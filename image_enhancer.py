@@ -62,9 +62,6 @@ def main():
             exit(0)
         new_image = func(new_image)
 
-    cv.imshow('Original', img)
-    cv.imshow(func_string, new_image)
-
     save_name = os.path.basename(img_path)
     save_name =func_string+"_"+save_name
     if save_location is not None:
