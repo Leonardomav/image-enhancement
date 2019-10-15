@@ -21,7 +21,7 @@ python main.py <image-path> <methods-list> <destination-path>
 + Complete or relative path to the image.
 
 #### methods-list 
-Selected methods from the list bellow, in the desired order, separated by a comma. 
+Selected methods from the list bellow, in the desired order, separated by a single comma. 
 + CS: Contrast Stretching
 + HE: Histogram Equalizer
 + CL: Contrast Limited Adaptive Histogram equalizer
