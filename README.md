@@ -41,10 +41,14 @@ To test the data-set run
 ```bash
 python main.py -TEST <methods-list> <sub-set>
 ```
-Where _<sub-set>_ can be:
+Where _sub-set_ can be:
   + bad
   + medium
   + good
   + all
 
 Make sure that the data-set is the correct one, and is in the same directory as the script.
+
+## Data-Set
+Link to data-set with test results:
+https://drive.google.com/open?id=1S-wCfn6u-1SNgZ9zhWhSmdHIinZvLVBt

@@ -1,5 +1,6 @@
 from PIL import Image
 from matplotlib import pyplot as plt
+from skimage import measure
 import cv2 as cv
 import sys
 import os
@@ -64,8 +65,10 @@ def main():
     cv.imshow('Original', img)
     cv.imshow(func_string, new_image)
 
+    save_name = os.path.basename(img_path)
+    save_name =func_string+"_"+save_name
     if save_location is not None:
-        cv.imwrite(os.path.join(save_location, func_string + ".jpg"), new_image)
+        cv.imwrite(os.path.join(save_location, save_name), new_image)
 
     cv.waitKey(0)
     cv.destroyAllWindows()
@@ -148,9 +151,4 @@ def contrast_stretching(img):
 
 
 if __name__ == "__main__":
-    # function_set = [classic_enhancement.contrast_stretching, classic_enhancement.clahe, classic_enhancement.histogram_equalize,
-    #                 classic_enhancement.gamma_correction,
-    #                 classic_enhancement.non_local_means_denoising, classic_enhancement.unsharp_masking]
-    # for i in range(len(function_set)):
-    #    test_dataset("good", [function_set[i]])
     main()
